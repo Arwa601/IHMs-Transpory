@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Utilisateur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+        body {
+            font-family: 'Urbanist', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f4ff;
+        }
+        .form-container {
+            width: 375px;
+            height: 667px; 
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+        }
+        h2 {
+            margin-bottom: 20px; 
+            color: #4c6ef5; 
+        }
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: none; 
+        }
+        .profile-pic input[type="file"] {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .profile-pic i {
+            font-size: 40px;
+            color: #666;
+        }
+        .image-symbol {
+            font-size: 20px; 
+            color: #4c6ef5; 
+            position: absolute;
+            bottom: 10px; 
+            right: 10px; 
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #4c6ef5;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+        .btn:hover {
+            background-color: #3a5cda;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Remplir votre profil</h2> 
+    <div class="profile-pic">
+        <img id="profileImage" src="" alt="Profile" />
+        <i class="fas fa-user" id="defaultIcon"></i>
+        <span class="image-symbol">✏️</span> 
+        <input type="file" accept="image/*" onchange="previewImage(event)" />
+    </div>
+    <form id="profileForm">
+        <input type="text" placeholder="Nom" required />
+        <input type="text" placeholder="Prénom" required />
+        <input type="text" placeholder="Adresse e-mail" required />
+        <input type="password" placeholder="Mot de passe" required />
+        <input type="date" required />
+        <button type="submit" class="btn">Enregistrer</button>
+    </form>
+</div>
+
+<script>
+    function previewImage(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const img = document.getElementById('profileImage');
+            const icon = document.getElementById('defaultIcon');
+            img.src = e.target.result;
+            img.style.display = 'block'; 
+            icon.style.display = 'none'; 
+        };
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+
+</body>
+</html>

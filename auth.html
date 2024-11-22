@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transpory Sign Up</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+  <style>
+    body {
+        font-family: 'Urbanist', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f4ff;
+    }
+    .container {
+        width: 375px;
+        height: 667px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        margin-top: 55px;
+    }
+    .logo {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .logo img {
+        max-width: 100%; /* Ensure the image does not exceed container width */
+        height: auto; /* Maintain aspect ratio */
+    }
+    .form-group {
+        margin-bottom: 90px; /* Increased margin for better spacing between fields */
+    }
+    .form-control {
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        padding: 10px;
+        font-size: 16px;
+    }
+    .form-control::placeholder {
+        color: #999; /* Placeholder text color */
+    }
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        display: block; /* Make the button block-level to center it */
+        margin: 20px auto 0; /* Center the button with margin above it */
+    }
+    .btn-primary:hover {
+        background-color: #0069d9;
+    }
+    
+    .navigate-button {
+        margin: 15px;
+        padding: 10px;
+        background-color: #4c6ef5;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="./assets/3.jpg" alt="Transpory Logo" class="img-fluid"> <!-- Utilisation de img-fluid pour l'adaptabilité -->
+    </div>
+    <form>
+      <div class="form-group">
+        <input type="email" id="email" class="form-control" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" class="form-control" placeholder="Tapez Mot de passe" required>
+      </div>
+      <div class="form-group">
+        <input type="password" id="confirm-password" class="form-control" placeholder="Tapez code confidentiel" required>
+      </div>
+      <button class="btn-primary" type="button" onclick="window.location.href='index.html'">
+        Enregistrer
+      </button>
+    </form>
+   
+  </div>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+</body>
+</html>

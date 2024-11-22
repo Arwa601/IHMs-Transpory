@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transport Selection</title>
+
+  <!-- React and ReactDOM CDN -->
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+
+  <!-- Babel CDN for JSX support -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- Bootstrap for basic styling -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+  <!-- Google Fonts for Urbanist -->
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      font-weight: bold;
+      font-family: 'Urbanist', sans-serif; 
+      background-color: #fffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      width: 375px; 
+      height: 667px; 
+      margin: 20px auto;
+      padding: 20px;
+      text-align: center;
+      background-color: #ffffff; 
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-weight: bold;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .back-button, .menu-button {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .logo img {
+      height: 120px;
+      margin-bottom: 20px;
+    }
+
+    .transport-options {
+      width: 100%;
+    }
+
+    .transport-options .option {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ffffff; 
+      border-radius: 8px; 
+      background-color: rgb(251, 248, 248);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .transport-options .option:hover {
+      transform: scale(1.05); 
+    }
+
+    .transport-options label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-size: 20px; 
+      width: 100%;
+    }
+
+    .icon {
+      width: 50px; 
+      margin-right: 15px;
+    }
+
+    .continue-button {
+      background-color: #2F80ED;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .continue-button:hover {
+      background-color: #1C6CC4;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    const App = () => {
+      const [selectedOption, setSelectedOption] = useState('Bus');
+
+      const handleOptionChange = (e) => {
+        setSelectedOption(e.target.value);
+      };
+
+      const handleSubmit = () => {
+        alert(`You selected: ${selectedOption}`);
+      };
+
+      return (
+        <div className="container">
+          <header className="header">
+            <button className="back-button">←</button>
+            <h4>Sélectionnez votre moyen</h4>
+            <button className="menu-button">☰</button>
+          </header>
+          
+          <div className="logo">
+            <img src="./assets/3.jpg" alt="Transpory Logo" />
+
+          </div>
+
+          <form className="transport-options">
+            <div className="option">
+              <label>
+                <input
+                  type="radio"
+                  value="Métro"
+                  checked={selectedOption === 'Métro'}
+                  onChange={handleOptionChange}
+                />
+                <img src="./assets/1.jpg" alt="Métro" className="icon" />
+                Métro
+              </label>
+            </div>
+
+            <div className="option">
+              <label>
+                <input
+                  type="radio"
+                  value="Bus"
+                  checked={selectedOption === 'Bus'}
+                  onChange={handleOptionChange}
+                />
+                <img src="./assets/4.jpg" alt="Bus" className="icon" />
+                Bus
+              </label>
+            </div>
+
+            <div className="option">
+              <label>
+                <input
+                  type="radio"
+                  value="Taxi collectif"
+                  checked={selectedOption === 'Taxi collectif'}
+                  onChange={handleOptionChange}
+                />
+                <img src="./assets/2.jpg" alt="Taxi collectif" className="icon" />
+                Taxi collectif
+              </label>
+            </div>
+
+            <button type="button" className="continue-button" onClick={() => window.location.href = 'station-choice.html'}>
+              Continue
+            </button>
+            
+          </form>
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
